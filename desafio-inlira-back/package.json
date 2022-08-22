@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx nodemon app/index.ts"
+    "start": "npx nodemon app/index.ts && npx sequelize-cli db:migrate"
+    
   },
   "keywords": [],
   "author": "",
@@ -15,10 +16,17 @@
     "@types/node": "^18.7.6",
     "apollo-server-core": "^3.10.1",
     "apollo-server-express": "^3.10.1",
+    "axios": "^0.27.2",
     "express": "^4.18.1",
     "graphql": "^16.6.0",
     "nodemon": "^2.0.19",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.21.4",
     "ts-node": "^10.9.1",
     "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.4.1"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "db_df_inlira",
+    "host": "192.168.100.9",
+    "dialect": "postgres"
+  }
+}

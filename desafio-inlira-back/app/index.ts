@@ -11,7 +11,7 @@ const httpServer = http.createServer(app);
 async function startApolloServer(schema: any, resolvers: any) {
     const server = new ApolloServer({
     typeDefs: schema,
-    resolvers,
+    resolvers: resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   }) as any;
 
