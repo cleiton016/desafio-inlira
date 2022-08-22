@@ -1,6 +1,9 @@
 import { ContacaoComponent } from './components/cotacao/cotacao.component';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Resolver, useForm } from 'react-hook-form';
+import { useQuery } from '@apollo/client';
+import { GET_COTACAO } from './shema/cotacao';
+import { useState } from 'react';
 
 
 type FormValues = {
@@ -12,23 +15,30 @@ const resolver: Resolver<FormValues> = async (values) => {
     values: !values.dataCotacao ? {} : values,
     errors: !values.dataCotacao
       ? {
-          dataCotacao: {
-            type: "required",
-            message: "Informe uma data!"
-          }
+        dataCotacao: {
+          type: "required",
+          message: "Informe uma data!"
         }
+      }
       : {}
   };
 };
 
 function App() {
+  const [dataCotacao, setDataCotacao] = useState<string>('')
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({ resolver });
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit(
+    async (form) => {
+      console.log(form.dataCotacao);
+      const data = new Date(form.dataCotacao);
+      const dataFormatada = ((data.getMonth() + 1)) + "-" + ((data.getDate() + 1)) + "-" + data.getFullYear();
+      console.log(dataFormatada);
+      setDataCotacao(dataFormatada)
+    }
+  );
 
   return (
-
-
     <div className="container">
 
       <div className="py-5 text-center">
@@ -37,7 +47,8 @@ function App() {
       </div>
 
       <div className="row">
-        <ContacaoComponent cotacaoCompra={5.79} cotacaoVenda={5.78} dataDaCotacao="17-08-2022" />
+
+        <ContacaoComponent dataDaCotacao={dataCotacao} />
 
         <div className="col-md-8 order-md-1">
           <h4 className="mb-3">Filtrar Cotação</h4>
