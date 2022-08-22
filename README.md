@@ -13,3 +13,9 @@ Ainda no mesmo diretorio rode os comando abaixo para criar o banco de dados e as
 `npx sequelize-cli db:create`
 
 `npx sequelize-cli db:migrate`
+
+### Iniciando "desafio-inlira-front"
+
+Entre na pasta com `cd desafio-inlira-front`
+
+Inicialize o projeto com `npm run dev`
