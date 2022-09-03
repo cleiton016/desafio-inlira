@@ -1,8 +1,9 @@
-# desafio-inlira
+# Desafio-inlira
 
 
-O desafio consiste em criar endpoint para buscar cotação do Dólar de acordo com uma data, o formato da data deve ser `MM-DD-YYYY` Ex.: `08-22-2022`.
-
+O desafio consiste em criar API utilizando `Graphql` para buscar cotação do Dólar, de acordo com uma data. 
+O formato da data deve ser `MM-DD-YYYY` Ex.: `08-22-2022`.
+#### Como deve funcionar?
 Primeiramente a API deve consulta se existe uma cotação em sua base de dados, caso não exista a API deve realizar uma busca na API do Banco Central
 
 Exemplo de retorno:
